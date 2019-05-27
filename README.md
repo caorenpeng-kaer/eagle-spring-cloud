@@ -9,8 +9,8 @@
 * 4.需要加入 @EnableAsync注解
 * 5.配置所需参数
 ### 配置文件如下(按照自己实际情况配置)
-spring.rabbitmq.username=guest
-spring.rabbitmq.password=guest
-spring.rabbitmq.queue=eagle
-spring.rabbitmq.port=5672
-spring.rabbitmq.host=127.0.0.1
+* spring.rabbitmq.username=guest
+* spring.rabbitmq.password=guest
+* spring.rabbitmq.queue=eagle
+* spring.rabbitmq.port=5672
+* spring.rabbitmq.host=127.0.0.1
