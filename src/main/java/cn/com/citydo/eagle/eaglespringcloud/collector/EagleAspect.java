@@ -23,10 +23,14 @@ public class EagleAspect {
     private final static String SPANID = "spanId";
     private final static String TRACEID = "traceId";
     private final static String STARTTIME = "startTime";
+    private final static String RABBITMQ = "rabbitmq";
     @Autowired
     private RabbitMqStorageSender sender;
     @Value("${spring.application.name}")
     String serviceName;
+
+    @Value("${eagle.collector.type}")
+    String type;
 
     @Pointcut(value = "execution(public * *.*.*.*.*.controller.*.*(..))")
     public void pointCut() {
@@ -50,12 +54,18 @@ public class EagleAspect {
     @AfterReturning(pointcut = "pointCut()", returning = "res")
     public void afterReturning(JoinPoint joinPoint, Object res) {
         EagleAcceptWrapper.accept(entity, false, joinPoint, res, null);
-        sender.sendServiceMessage(entity);
+        if(null==type)
+            sender.sendServiceMessage(entity);
+        else if(RABBITMQ.equals(type))
+            sender.sendServiceMessage(entity);
     }
 
     @AfterThrowing(pointcut = "pointCut()", throwing = "ex")
     public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
         EagleAcceptWrapper.accept(entity, true, joinPoint, null, ex);
-        sender.sendServiceMessage(entity);
+        if(null==type)
+            sender.sendServiceMessage(entity);
+        else if(RABBITMQ.equals(type))
+            sender.sendServiceMessage(entity);
     }
 }

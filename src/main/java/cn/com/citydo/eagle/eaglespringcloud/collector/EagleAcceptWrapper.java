@@ -43,7 +43,7 @@ public class EagleAcceptWrapper {
         } else {
             if (res instanceof SysResult) {
                 SysResult result = (SysResult) res;
-                entity.setResponseResult(result.getData().toString());
+                entity.setResponseResult(result.toString());
                 entity.setStatus(result.getCode());
             } else {
                 entity.setResponseResult(res.toString());
