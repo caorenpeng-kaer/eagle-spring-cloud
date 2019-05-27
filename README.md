@@ -14,3 +14,4 @@
 * spring.rabbitmq.queue=eagle
 * spring.rabbitmq.port=5672
 * spring.rabbitmq.host=127.0.0.1
+* eagle.collector.type=rabbitmq  #选择数据存储方式
