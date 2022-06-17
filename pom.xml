@@ -17,7 +17,7 @@
 	<properties>
 		<maven.test.skip>true</maven.test.skip>
 		<java.version>1.8</java.version>
-		<fastjson.version>1.2.47</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 		<aspect.version>1.8.9</aspect.version>
 	</properties>
